@@ -1,0 +1,202 @@
+@use 'variables' as *;
+
+.certifications {
+  padding: 80px 0;
+  background-color: $dark-color;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+    opacity: 0.1;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    color: $accent-color;
+    font-size: 2.5rem;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, $accent-color, transparent);
+    }
+  }
+
+  .certifications-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .certifications-column,
+  .achievements-column {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .column-title {
+    font-size: 1.5rem;
+    color: $light-color;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background-color: $primary-color;
+    }
+  }
+
+  .cert-cards,
+  .achievement-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .cert-card,
+  .achievement-card {
+    display: flex;
+    background: rgba($dark-color, 0.7);
+    border: 1px solid rgba($accent-color, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba($accent-color, 0.1) 0%, rgba($primary-color, 0.05) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba($accent-color, 0.15);
+      
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  .cert-icon,
+  .achievement-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    background: rgba($accent-color, 0.1);
+    border-radius: 50%;
+    margin-right: 15px;
+    color: $accent-color;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    
+    svg {
+      filter: drop-shadow(0 0 5px rgba($accent-color, 0.5));
+    }
+  }
+
+  .cert-card:hover .cert-icon,
+  .achievement-card:hover .achievement-icon {
+    background: rgba($accent-color, 0.2);
+    transform: scale(1.1);
+  }
+
+  .cert-details,
+  .achievement-details {
+    flex: 1;
+  }
+
+  h4 {
+    color: $light-color;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .cert-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    
+    span {
+      color: $secondary-color;
+      background: rgba($secondary-color, 0.1);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+  }
+
+  .skills,
+  .achievement-details p {
+    color: $light-color;
+    opacity: 0.8;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  // Special styling for the trophy icon
+  .achievement-card:first-child .achievement-icon {
+    background: rgba($primary-color, 0.2);
+    color: $primary-color;
+    
+    svg {
+      filter: drop-shadow(0 0 5px rgba($primary-color, 0.5));
+    }
+  }
+
+  // Responsive styles
+  @media (max-width: 768px) {
+    .certifications-content {
+      flex-direction: column;
+    }
+    
+    .certifications-column,
+    .achievements-column {
+      width: 100%;
+    }
+  }
+}

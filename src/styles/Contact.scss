@@ -1,0 +1,105 @@
+@use 'variables' as *;
+
+.contact {
+  padding-top: 120px;
+  
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xl;
+    
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .contact-info {
+    h3 {
+      font-size: $font-size-xl;
+      margin-bottom: $spacing-md;
+      color: $primary-color;
+    }
+    
+    p {
+      margin-bottom: $spacing-lg;
+      line-height: 1.8;
+    }
+  }
+  
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+  
+  .contact-method {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    padding: $spacing-sm;
+    border-radius: $border-radius-md;
+    background: rgba($dark-color, 0.5);
+    transition: all $animation-normal ease;
+    
+    &:hover {
+      transform: translateX(10px);
+      background: rgba($primary-color, 0.1);
+    }
+    
+    svg {
+      font-size: $font-size-lg;
+      color: $primary-color;
+    }
+  }
+  
+  .contact-form {
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-md;
+    }
+    
+    .form-group {
+      input, textarea {
+        width: 100%;
+        padding: $spacing-md;
+        background: rgba($dark-color, 0.5);
+        border: 1px solid rgba($secondary-color, 0.3);
+        border-radius: $border-radius-md;
+        color: $light-color;
+        font-family: 'Quicksand', sans-serif;
+        transition: all $animation-normal ease;
+        
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+          box-shadow: 0 0 10px rgba($primary-color, 0.3);
+        }
+        
+        &::placeholder {
+          color: rgba($light-color, 0.5);
+        }
+      }
+      
+      textarea {
+        resize: vertical;
+      }
+    }
+    
+    button {
+      align-self: flex-end;
+    }
+  }
+  
+  .footer {
+    margin-top: $spacing-2xl;
+    padding: $spacing-lg 0;
+    text-align: center;
+    border-top: 1px solid rgba($light-color, 0.1);
+    
+    p {
+      font-size: $font-size-sm;
+      color: rgba($light-color, 0.7);
+    }
+  }
+}

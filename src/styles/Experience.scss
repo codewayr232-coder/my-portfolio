@@ -1,0 +1,146 @@
+@use 'variables' as *;
+
+.experience {
+  padding-top: 120px;
+  
+  .timeline {
+    position: relative;
+    padding-left: 50px;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 20px;
+      height: 100%;
+      width: 2px;
+      background: linear-gradient(to bottom, $primary-color, $secondary-color);
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: $spacing-xl;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      .timeline-dot {
+        position: absolute;
+        left: -50px;
+        top: 15px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: $primary-color;
+        border: 3px solid $dark-color;
+        box-shadow: 0 0 10px rgba($primary-color, 0.5);
+        z-index: 1;
+      }
+      
+      .timeline-content {
+        position: relative;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          top: 15px;
+          left: -20px;
+          width: 20px;
+          height: 2px;
+          background: linear-gradient(to right, $primary-color, transparent);
+        }
+        
+        .timeline-header {
+          margin-bottom: $spacing-sm;
+          
+          h3 {
+            font-size: $font-size-lg;
+            margin-bottom: $spacing-xs;
+            color: $primary-color;
+          }
+          
+          .company {
+            font-size: $font-size-md;
+            font-weight: 600;
+            color: $light-color;
+          }
+        }
+        
+        .timeline-info {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: $spacing-md;
+          font-size: $font-size-sm;
+          color: rgba($light-color, 0.7);
+          
+          .period {
+            padding-left: 20px;
+            position: relative;
+            
+            &::before {
+              content: '⏱️';
+              position: absolute;
+              left: 0;
+              top: 0;
+            }
+          }
+          
+          .location {
+            padding-left: 20px;
+            position: relative;
+            
+            &::before {
+              content: '📍';
+              position: absolute;
+              left: 0;
+              top: 0;
+            }
+          }
+        }
+        
+        .timeline-description {
+          list-style: none;
+          
+          li {
+            margin-bottom: $spacing-sm;
+            padding-left: 20px;
+            position: relative;
+            
+            &::before {
+              content: '✨';
+              position: absolute;
+              left: 0;
+              top: 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    .timeline {
+      padding-left: 30px;
+      
+      &::before {
+        left: 10px;
+      }
+      
+      .timeline-item {
+        .timeline-dot {
+          left: -30px;
+          width: 15px;
+          height: 15px;
+        }
+        
+        .timeline-content {
+          &::before {
+            left: -15px;
+            width: 15px;
+          }
+        }
+      }
+    }
+  }
+}

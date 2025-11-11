@@ -1,0 +1,213 @@
+@use 'variables' as *;
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba($purple-accent, 0.1) 0%, rgba($dark-color, 0) 70%);
+    z-index: -1;
+  }
+  
+  .hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+    
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column-reverse;
+      text-align: center;
+      padding-top: 80px;
+    }
+  }
+  
+  .hero-text {
+    flex: 1;
+    
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: $spacing-sm;
+      letter-spacing: 2px;
+    }
+    
+    h2 {
+      font-size: $font-size-xl;
+      margin-bottom: $spacing-md;
+      font-weight: 500;
+      color: $secondary-color;
+    }
+    
+    p {
+      font-size: $font-size-lg;
+      margin-bottom: $spacing-xl;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      h2 {
+        font-size: $font-size-lg;
+      }
+      
+      p {
+        font-size: $font-size-md;
+        margin: 0 auto $spacing-lg;
+      }
+    }
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: $spacing-md;
+    margin-bottom: $spacing-xl;
+    
+    .btn {
+      &.secondary {
+        background: transparent;
+        border: 2px solid $secondary-color;
+        
+        &:hover {
+          background: rgba($secondary-color, 0.1);
+        }
+      }
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      justify-content: center;
+    }
+  }
+  
+  .social-links {
+    display: flex;
+    gap: $spacing-md;
+    
+    a {
+      font-size: $font-size-xl;
+      color: $light-color;
+      transition: all $animation-normal ease;
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      justify-content: center;
+    }
+  }
+  
+  .hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .anime-avatar {
+      position: relative;
+      
+      .avatar-container {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        
+        .avatar-circle {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background: linear-gradient(45deg, $primary-color, $purple-accent);
+          position: relative;
+          overflow: hidden;
+          
+          &::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M50 30 C 60 10, 90 10, 90 40 C 90 70, 60 90, 50 70 C 40 90, 10 70, 10 40 C 10 10, 40 10, 50 30 Z' fill='%23f7f7f7'/%3E%3Ccircle cx='35' cy='40' r='5' fill='%231a1a2e'/%3E%3Ccircle cx='65' cy='40' r='5' fill='%231a1a2e'/%3E%3Cpath d='M40 60 C 45 65, 55 65, 60 60' stroke='%231a1a2e' stroke-width='2' fill='none'/%3E%3C/svg%3E") center/cover no-repeat;
+            border-radius: 50%;
+            animation: float 3s ease-in-out infinite;
+          }
+        }
+        
+        .avatar-glow {
+          position: absolute;
+          top: -20px;
+          left: -20px;
+          right: -20px;
+          bottom: -20px;
+          border-radius: 50%;
+          background: radial-gradient(circle at center, rgba($primary-color, 0.5) 0%, rgba($primary-color, 0) 70%);
+          filter: blur(20px);
+          animation: pulse 3s ease-in-out infinite alternate;
+          z-index: -1;
+        }
+      }
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: $spacing-xl;
+      
+      .anime-avatar .avatar-container {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  }
+  
+  .scroll-indicator {
+    position: absolute;
+    bottom: $spacing-xl;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    
+    span {
+      display: block;
+      margin-bottom: $spacing-sm;
+      font-size: $font-size-sm;
+      opacity: 0.7;
+    }
+    
+    .arrow {
+      width: 20px;
+      height: 20px;
+      border-right: 2px solid $secondary-color;
+      border-bottom: 2px solid $secondary-color;
+      transform: rotate(45deg);
+      margin: 0 auto;
+    }
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}

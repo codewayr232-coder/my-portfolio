@@ -1,0 +1,49 @@
+// Anime-themed color palette
+$primary-color: #ff6b6b; // Vibrant red
+$secondary-color: #4ecdc4; // Teal accent
+$dark-color: #1a1a2e; // Deep blue-black
+$light-color: #f7f7f7; // Off-white
+$accent-color: #ffd166; // Golden yellow
+$purple-accent: #845ec2; // Purple accent
+$pink-accent: #ff9a8b; // Soft pink
+
+// Font sizes
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.5rem;
+$font-size-2xl: 2rem;
+$font-size-3xl: 3rem;
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Animation durations
+$animation-fast: 0.2s;
+$animation-normal: 0.4s;
+$animation-slow: 0.8s;
+
+// Z-index levels
+$z-index-base: 1;
+$z-index-menu: 10;
+$z-index-modal: 100;
+$z-index-tooltip: 1000;
+
+// Border radius
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 16px;
+$border-radius-xl: 24px;
+$border-radius-full: 9999px;

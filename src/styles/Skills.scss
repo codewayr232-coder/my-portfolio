@@ -1,0 +1,73 @@
+@use 'variables' as *;
+
+.skills {
+  padding-top: 120px;
+  
+  .skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing-xl;
+    
+    @media (max-width: $breakpoint-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .skill-category {
+    h3 {
+      font-size: $font-size-lg;
+      margin-bottom: $spacing-md;
+      color: $primary-color;
+      text-align: center;
+      
+      &::after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(90deg, $primary-color, $secondary-color);
+        margin: $spacing-xs auto 0;
+      }
+    }
+  }
+  
+  .skill-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    justify-content: center;
+  }
+  
+  .skill-item {
+    background: linear-gradient(135deg, rgba($dark-color, 0.8), rgba($purple-accent, 0.2));
+    padding: $spacing-sm $spacing-md;
+    border-radius: $border-radius-md;
+    font-size: $font-size-sm;
+    font-weight: 500;
+    color: $light-color;
+    border: 1px solid rgba($primary-color, 0.3);
+    transition: all $animation-normal ease;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba($primary-color, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    &:hover {
+      color: $primary-color;
+      border-color: rgba($primary-color, 0.6);
+      
+      &::before {
+        left: 100%;
+      }
+    }
+  }
+}
